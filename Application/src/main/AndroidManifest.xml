@@ -23,9 +23,9 @@
 
 
     <!-- Allows applications to discover and pair bluetooth devices.  -->
-    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+   <!-- <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>-->
     <!-- Allows applications to connect to paired bluetooth devices. -->
-    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <!--<uses-permission android:name="android.permission.BLUETOOTH"/>-->
 
     <application
         android:allowBackup="true"

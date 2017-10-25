@@ -22,7 +22,6 @@ import android.bluetooth.BluetoothDevice;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -72,8 +71,8 @@ public class DeviceListActivity extends Activity {
         // Get the local Bluetooth adapter
         bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 
-        initPairedDevices();
-        initNewDevicesScan();
+        //initPairedDevices();
+        //initNewDevicesScan();
 
 
     }
@@ -82,22 +81,22 @@ public class DeviceListActivity extends Activity {
         // Find and set up the ListView for newly discovered devices
         ListView newDevicesListView =  findViewById(R.id.new_devices);
         newDevicesListView.setAdapter(mNewDevicesArrayAdapter);
-        newDevicesListView.setOnItemClickListener(mDeviceClickListener);
+        //newDevicesListView.setOnItemClickListener(mDeviceClickListener);
 
 
         /** Init the BroadcastReceiver to manage action to do if it found devices
          * and when the discovery finished*/
-        IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
+        /*IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
         this.registerReceiver(mReceiver, filter);
 
         filter = new IntentFilter(BluetoothAdapter.ACTION_DISCOVERY_FINISHED);
-        this.registerReceiver(mReceiver, filter);
+        this.registerReceiver(mReceiver, filter);*/
 
         Button scanButton = findViewById(R.id.button_scan);
         scanButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 doDiscovery();
-                v.setVisibility(GONE);
+                v.setVisibility(View.GONE);
             }
         });
     }
@@ -112,7 +111,7 @@ public class DeviceListActivity extends Activity {
         // Find and set up the ListView for paired devices
         ListView pairedListView =  findViewById(R.id.paired_devices);
         pairedListView.setAdapter(pairedDevicesArrayAdapter);
-        pairedListView.setOnItemClickListener(mDeviceClickListener);
+        //pairedListView.setOnItemClickListener(mDeviceClickListener);
 
         // Get a set of currently paired devices
         Set<BluetoothDevice> pairedDevices = bluetoothAdapter.getBondedDevices();
